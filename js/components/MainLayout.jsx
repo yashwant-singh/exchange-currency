@@ -4,7 +4,7 @@ import Content from './Body';
 
 const Main = () => (
   <React.Fragment>
-    <AppMenubar />
+    {/* <AppMenubar /> */}
     <Content />
   </React.Fragment>
 );

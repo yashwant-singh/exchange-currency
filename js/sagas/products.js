@@ -3,20 +3,18 @@ import * as produtService from '../services/products';
 import * as Actions from '../actions/productAction';
 import * as ActionCreator from '../actions/productActionCreator';
 
-function* fetchProducts() {
-  console.log('Fetching products');
+function* fetchExchangeRate() {
   try {
-    const loginResponse = yield call(produtService.loginThyrocare, 'dummy', 'dummypwd', 'DSA');
-    const productResponse = yield call(produtService.fetchProducts, loginResponse.data.API_KEY, 'ALL');
-    console.log(productResponse);
-    yield put(ActionCreator.productFetchedSuccessfully(productResponse.data));
+    const response = yield call(produtService.fetchExchangeRate);
+    console.log('response :', response);
+    // yield put(ActionCreator.productFetchedSuccessfully(productResponse.data));
   } catch (error) {
     console.log('Error :-', error);
   }
 }
 export default function* products() {
   yield[
-    takeLatest(Actions.FETCH_PRODUCT, fetchProducts),
+    takeLatest(Actions.FETCH_EXCHANGE_RATE, fetchExchangeRate),
   ];
 }
 

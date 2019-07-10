@@ -1,10 +1,6 @@
-import apiClient from '../utils/common/apiClient';
+// import apiClient from '../utils/common/apiClient';
 
-const urlRoute = {
-  getAllExchange: () => `https://api.exchangeratesapi.io/latest`,
-};
-
-export const loginThyrocare = (userName, password, userType) => {
-	return apiClient(urlRoute.getAllExchange());
+export const fetchExchangeRate = () => {
+  return fetch('https://api.exchangeratesapi.io/latest').then(data=> console.log(data));
 };
 
