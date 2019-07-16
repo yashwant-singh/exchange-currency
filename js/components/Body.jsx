@@ -30,9 +30,15 @@ class Body extends React.Component {
     const {rates, base } = this.props.products;
     console.log('amt :', amt, 'frmC :', frmC, ' toC :', toC);
     
+    if(amt == undefined) {
+      this.setState({['toAmt']: ''});
+    }
+
     if(base == frmC) {
       const exRate = rates[toC];
       this.setState({['toAmt']: exRate * amt});
+    } else if(frmC == toC) {
+      this.setState({['toAmt']: amt});
     } else {
       const baseExRate = rates[frmC];
       const euroAmt = baseExRate / amt;
