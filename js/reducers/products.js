@@ -1,8 +1,9 @@
 import * as Actions from '../actions/productAction';
 const initialState = {
-  from: 'USD',
-  to: 'USD',
-  amount: 1,
+  fromAmt: '',
+  toAmt: '',
+  fromCurr: 'USD',
+  toCurr: 'USD',
   rates: {},
 };
 

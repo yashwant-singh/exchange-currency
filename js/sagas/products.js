@@ -6,7 +6,8 @@ import * as ActionCreator from '../actions/productActionCreator';
 function* fetchExchangeRate() {
   try {
     const response = yield call(produtService.fetchExchangeRate);
-    console.log('response :', response);
+    const jsRes = yield response.sjon();
+    console.log("jsRes :", jsRes);
     // yield put(ActionCreator.productFetchedSuccessfully(productResponse.data));
   } catch (error) {
     console.log('Error :-', error);
